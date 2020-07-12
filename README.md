@@ -49,13 +49,14 @@ Things you may want to cover:
 - devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 - has_many :messages
+- has_many :users_groups
 - has_many :groups, through: :users_groups
 
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text|
 |image|string|
 |user|references|forenign_key: true|
 |group|references|forenign_key: true|
@@ -72,5 +73,6 @@ Things you may want to cover:
 
 ### Association
 - has_many :messages
+- has_many :users_groups
 - has_many :users, through: :users_groups
 
