@@ -69,7 +69,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|unique: true|
+|name|string|null: false|unique: true|
 
 ### Association
 - has_many :messages
