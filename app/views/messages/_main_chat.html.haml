@@ -1,0 +1,46 @@
+.main_chat
+  .main_chat__group-info
+    .main_left_box
+      .group_name
+        test
+      %ul.member_list
+        Member : 
+        %li.member
+          umi
+    .main_right_box
+      = link_to "#" do
+        Edit        
+  .main_chat__message-list
+    .message_box
+      .message_info
+        .message_info__name
+          umi
+        .message_info__date
+          2020/7/16(Wed)20:20
+      .massage_text
+        %p おはよう
+    .message_box
+      .message_info
+        .message_info__name
+          umi
+        .message_info__date
+          2020/7/16(Wed)20:20
+      .massage_text
+        %p おはよう
+    .message_box
+      .message_info
+        .message_info__name
+          umi
+        .message_info__date
+          2020/7/16(Wed)20:20
+      .massage_text
+        %p おはよう
+  %form.main_chat_message-form
+    .form_box
+      .form_box__left
+        %input.form__text{type: "text", placeholder: "type a message"}
+        %label.form__image
+          = icon('fas', 'image', class: "form_image--icon")
+          %input.image_icon{type: "file"}
+      .form_box__right
+        %input.form__submit{type: "submit" ,value: "Send"}
