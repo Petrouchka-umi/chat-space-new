@@ -43,10 +43,13 @@
     background-color: #2f3e51;
     height: calc(100vh - 100px);
     &__box{
-      color: #ffffff;
       margin: 0 20px 40px 20px; 
       padding-top: 20px;
       font-weight: bold;
+      a{
+        color: #ffffff;
+        text-decoration: none;
+      }
       .group_name{
         font-size: 15px;
         margin-bottom: 5px;
