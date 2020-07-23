@@ -2,45 +2,32 @@
   .main_chat__group-info
     .main_left_box
       .group_name
-        test
+        = @group.name
       %ul.member_list
         Member : 
         %li.member
-          umi
+          - @group.users.each do |user|
+            = user.name
     .main_right_box
-      = link_to "#" do
+      = link_to edit_group_path(@group) do
         Edit        
   .main_chat__message-list
-    .message_box
-      .message_info
-        .message_info__name
-          umi
-        .message_info__date
-          2020/7/16(Wed)20:20
-      .massage_text
-        %p おはよう
-    .message_box
-      .message_info
-        .message_info__name
-          umi
-        .message_info__date
-          2020/7/16(Wed)20:20
-      .massage_text
-        %p おはよう
-    .message_box
-      .message_info
-        .message_info__name
-          umi
-        .message_info__date
-          2020/7/16(Wed)20:20
-      .massage_text
-        %p おはよう
-  %form.main_chat_message-form
-    .form_box
+    = render @messages
+    -# .message_box
+    -#   .message_info
+    -#     .message_info__name
+    -#       umi
+    -#     .message_info__date
+    -#       2020/7/16(Wed)20:20
+    -#   .massage_text
+    -#     %p おはよう
+  .main_chat_message-form
+    = form_with model: [@group, @message], html: {class: "form_box "}, local: true do |f|
       .form_box__left
-        %input.form__text{type: "text", placeholder: "type a message"}
-        %label.form__image
+        = f.text_field :content, class: "form__text", placeholder: 'type a message'
+        = f.label :image, class: 'form__image' do
           = icon('fas', 'image', class: "form_image--icon")
-          %input.image_icon{type: "file"}
-      .form_box__right
-        %input.form__submit{type: "submit" ,value: "Send"}
+          = f.file_field :image, class: 'image_icon'
+      .fomr_box__right
+        = f.submit 'Send', class: 'form__submit'
+
